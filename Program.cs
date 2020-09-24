@@ -13,7 +13,7 @@ namespace Rosalind
             stopwatch.Start();
 
             // Insert code for execution here
-            Console.WriteLine(CONS.GetConsensusAndProfile());
+            Console.WriteLine(FIBD.GetNumberOfPairs());
 
             // Stop timer and report time
             stopwatch.Stop();
