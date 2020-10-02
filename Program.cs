@@ -13,7 +13,7 @@ namespace Rosalind
             stopwatch.Start();
 
             // Insert code for execution here
-            Console.WriteLine(LCSM.GetLongestCommonSubstring());
+            Console.WriteLine(PRTM.GetProteinMass());
 
             // Stop timer and report time
             stopwatch.Stop();

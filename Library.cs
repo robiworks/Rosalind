@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Rosalind
@@ -40,6 +41,29 @@ namespace Rosalind
                 }
             }
             return dict;
+        }
+
+        public static Dictionary<string, decimal> ParseMassTable()
+        {
+            string[] inputFile = File.ReadAllLines(@"..\..\..\Datasets\monoisotopicMassTable.txt");
+            var dict = new Dictionary<string, decimal>();
+            for (int i = 0; i < inputFile.Length; i++)
+            {
+                string protein = inputFile[i].Substring(0, 1);
+                decimal mass = decimal.Parse(inputFile[i].Substring(4).Replace('.', ','));
+                dict.Add(protein, mass);
+            }
+            dict.Add("WATER", (decimal)18.01056);
+            return dict;
+        }
+
+        public static int IntFactorial(int number)
+        {
+            for (int i = 2; i <= number; i++)
+            {
+                number *= i;
+            }
+            return number;
         }
     }
 }
