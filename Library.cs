@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 
 namespace Rosalind
 {
-    internal class Library // library of common functions
+    internal class Library // Library of common functions
     {
-        public static string[] ParseFastaToArray(string[] inputFile) // parse FASTA format without sequence identifiers
+        public static string[] ParseFastaToArray(string[] inputFile) // Parse FASTA format without sequence identifiers
         {
             string[] arr = new string[inputFile.Count(s => s.StartsWith('>'))];
             int n = -1;
@@ -24,7 +26,7 @@ namespace Rosalind
             return arr;
         }
 
-        public static Dictionary<string, string> ParseFastaToDictionary(string[] inputFile) // parse FASTA format with sequence identifiers
+        public static Dictionary<string, string> ParseFastaToDictionary(string[] inputFile) // Parse FASTA format with sequence identifiers
         {
             var dict = new Dictionary<string, string>();
             string identifier = "";
@@ -41,6 +43,18 @@ namespace Rosalind
                 }
             }
             return dict;
+        }
+
+        public static string[] UniprotDownload(string uniprotID) // Downloads protein data from the UniProt Database in FASTA format
+        {
+            Uri url = new Uri("http://www.uniprot.org/uniprot/" + uniprotID + ".fasta");
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(url, @"..\..\..\Datasets\uniprot_dw.txt");
+            }
+            string[] contents = File.ReadAllLines(@"..\..\..\Datasets\uniprot_dw.txt");
+            contents[0] = ">" + uniprotID;
+            return contents;
         }
 
         public static Dictionary<string, decimal> ParseMassTable()
