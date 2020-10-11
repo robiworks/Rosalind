@@ -79,5 +79,20 @@ namespace Rosalind
             }
             return number;
         }
+
+        public static string GetReverseComplement(string dnaSequence)
+        {
+            char[] s = dnaSequence.ToCharArray();
+            Array.Reverse(s);
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == 'A') { s[i] = 'T'; }
+                else if (s[i] == 'T') { s[i] = 'A'; }
+                else if (s[i] == 'C') { s[i] = 'G'; }
+                else if (s[i] == 'G') { s[i] = 'C'; }
+            }
+            string complement = new string(s);
+            return complement;
+        }
     }
 }
