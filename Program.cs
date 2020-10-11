@@ -13,7 +13,7 @@ namespace Rosalind
             stopwatch.Start();
 
             // Insert code for execution here
-            Console.WriteLine(REVP.GetReversePalindromes());
+            Console.WriteLine(MRNA.GetNumberOfPossibilities());
 
             // Stop timer and report time
             stopwatch.Stop();
