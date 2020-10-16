@@ -8,7 +8,7 @@ namespace Rosalind.Solutions
         public static string GetNumberOfPossibilities()
         {
             string input = File.ReadAllText(@"..\..\..\Datasets\rosalind_mrna.txt").Trim();
-            var codonTable = Library.CodonTable;
+            var codonTable = Library.RnaCodonTable;
             int result = 3; // To account for the stop codon, which means 3 protein possibilities
             for (int i = 0; i < input.Length; i++)
             {

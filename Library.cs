@@ -45,7 +45,7 @@ namespace Rosalind
             return dict;
         }
 
-        public static readonly Dictionary<string, string> CodonTable = new Dictionary<string, string>() // RNA codon table
+        public static readonly Dictionary<string, string> RnaCodonTable = new Dictionary<string, string>() // RNA codon table
             { {"UUU", "F" }, {"UUC", "F" }, {"UUA", "L" }, {"UUG", "L" }, {"UCU", "S" }, {"UCC", "S" }, {"UCA", "S" }, {"UCG", "S" },
                 {"UAU", "Y" }, {"UAC", "Y" }, {"UGU", "C" }, {"UGC", "C" }, {"UGG", "W" }, {"CUU", "L" }, {"CUC", "L" }, {"CUA", "L" }, {"CUG", "L" },
                 {"CCU", "P" }, {"CCC", "P" }, {"CCA", "P" }, {"CCG", "P" }, {"CAU", "H" }, {"CAC", "H" }, {"CAA", "Q" }, {"CAG", "Q" },
@@ -104,6 +104,12 @@ namespace Rosalind
             }
             string complement = new string(s);
             return complement;
+        }
+
+        public static string TranscribeDNAtoRNA(string dnaSequence)
+        {
+            string rnaSequence = dnaSequence.Replace('T', 'U');
+            return rnaSequence;
         }
     }
 }

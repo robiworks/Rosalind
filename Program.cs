@@ -13,7 +13,7 @@ namespace Rosalind
             stopwatch.Start();
 
             // Insert code for execution here
-            Console.WriteLine(MRNA.GetNumberOfPossibilities());
+            Console.WriteLine(SPLC.GetProteinString());
 
             // Stop timer and report time
             stopwatch.Stop();
