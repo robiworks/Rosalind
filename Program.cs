@@ -13,7 +13,7 @@ namespace Rosalind
             stopwatch.Start();
 
             // Insert code for execution here
-            Console.WriteLine(SPLC.GetProteinString());
+            Console.WriteLine(PERM.GetPermutations());
 
             // Stop timer and report time
             stopwatch.Stop();

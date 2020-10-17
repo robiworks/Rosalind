@@ -129,11 +129,12 @@ namespace Rosalind
         /// <returns>The factorial of <c>number</c>.</returns>
         public static int IntFactorial(int number)
         {
-            for (int i = 2; i <= number; i++)
+            int factorial = number;
+            for (int i = 2; i < number; i++)
             {
-                number *= i;
+                factorial *= i;
             }
-            return number;
+            return factorial;
         }
 
         /// <summary>
